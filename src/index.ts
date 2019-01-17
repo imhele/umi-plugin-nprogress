@@ -3,7 +3,7 @@ import Mustache from 'mustache';
 import { readFileSync, writeFileSync } from 'fs';
 
 export interface Options {
-  configure?: NProgressConfigureOptions;
+  configuration?: NProgressConfigureOptions;
   effects?: string[] | RegExp;
   enable?: boolean;
   global?: boolean;
@@ -32,7 +32,7 @@ const getOptions = (api: any, newOpts: Options) => {
         return true;
       } else if (Array.isArray(plugin)) {
         if (plugin[0] === 'umi-plugin-react') {
-          return plugin[1].dva ? true : false;
+          return (plugin[1] || {}).dva ? true : false;
         }
       }
       return false;
@@ -73,7 +73,7 @@ export default (api: any, options: Options = {}): void => {
       enable: options.enable,
       global: options.global,
       routeOnly: options.routeOnly,
-      configure: JSON.stringify(options.configure, null, 0),
+      configuration: JSON.stringify(options.configuration, null, 0),
     });
     const wrapperPath = join(api.paths.absTmpDirPath, './NProgressWrapper.js');
     writeFileSync(wrapperPath, wrapperContent, 'utf-8');

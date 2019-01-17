@@ -6,7 +6,7 @@ export default {
       dva: true,
     }],
     [join(__dirname, '..', require('../package').main || 'index.js'), {
-      configure: {
+      configuration: {
         speed: 400,
         trickleSpeed: 100,
       },

@@ -51,12 +51,12 @@ const isLoading = (props) => {
 };
 
 class Wrapper extends PureComponent {
-  {{#configure}}
+  {{#configuration}}
   constructor(props) {
-    NProgress.configure({{{configure}}});
+    NProgress.configure({{{configuration}}});
     super(props);
   }
-  {{/configure}}
+  {{/configuration}}
 
   render() {
     {{#enable}}
