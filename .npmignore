@@ -1,0 +1,13 @@
+/.git/
+/.vscode/
+/coverage/
+/example/
+/node_modules/
+/tests/
+.gitignore
+.npmignore
+tslint.json
+tsconfig.json
+*.log
+.coveralls.yml
+.travis.yml
