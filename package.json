@@ -9,8 +9,7 @@
     "coverage": "cat ./coverage/lcov.info | coveralls",
     "lint": "tslint \"src/**/*.ts\" \"test/**/*.ts\"",
     "precommit": "lint-staged",
-    "pre": "yarn lint && yarn build && cd examples/base && yarn build",
-    "pre:win": "yarn lint && yarn build && cd examples\\base && yarn build",
+    "pre": "yarn lint && yarn build && cd example && yarn start",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage"
   },
