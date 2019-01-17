@@ -8,6 +8,7 @@
 
 Add a top progress bar to your [Umi](https://github.com/umijs/umi) project.
 
+
 ## Usage
 Before using `umi-plugin-nprogress` , please ensure you have enabled `dva`.
 
