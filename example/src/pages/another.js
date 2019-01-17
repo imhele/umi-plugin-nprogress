@@ -3,20 +3,13 @@ import { connect } from 'dva';
 import styles from './index.css';
 import { PureComponent } from 'react';
 
-class Index extends PureComponent {
+class Another extends PureComponent {
   constructor(props) {
     props.dispatch({
       type: 'global/waitForMe',
-      timeout: 300,
+      timeout: 200,
     });
     super(props);
-  }
-
-  onClick = () => {
-    this.props.dispatch({
-      type: 'global/waitForMe',
-      timeout: 400,
-    });
   }
 
   render() {
@@ -24,12 +17,11 @@ class Index extends PureComponent {
       <div className={styles.normal}>
         <div className={styles.welcome} />
         <ul className={styles.list}>
-          <li><button onClick={this.onClick}>Click to dispatch a effect in dva</button></li>
-          <li><Link to='/another'>Go to another page</Link></li>
+          <li><Link to='/'>Back to index</Link></li>
         </ul>
       </div>
     );
   }
 }
 
-export default connect(() => ({}))(Index)
+export default connect(() => ({}))(Another)

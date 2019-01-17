@@ -832,10 +832,33 @@
   resolved "http://registry.npm.taobao.org/@types/jest/download/@types/jest-23.3.11.tgz#d3a936ae753d9e484965f5cbd19027c2b8af2551"
   integrity sha1-06k2rnU9nkhJZfXL0ZAnwrivJVE=
 
-"@types/node@*":
+"@types/mustache@^0.8.32":
+  version "0.8.32"
+  resolved "http://registry.npm.taobao.org/@types/mustache/download/@types/mustache-0.8.32.tgz#7db3b81f2bf450bd38805f596d20eca97c4ed595"
+  integrity sha1-fbO4Hyv0UL04gF9ZbSDsqXxO1ZU=
+
+"@types/node@*", "@types/node@^10.12.18":
   version "10.12.18"
   resolved "http://registry.npm.taobao.org/@types/node/download/@types/node-10.12.18.tgz#1d3ca764718915584fcd9f6344621b7672665c67"
   integrity sha1-HTynZHGJFVhPzZ9jRGIbdnJmXGc=
+
+"@types/nprogress@^0.0.29":
+  version "0.0.29"
+  resolved "http://registry.npm.taobao.org/@types/nprogress/download/@types/nprogress-0.0.29.tgz#060bd510022a005f1840234030d3132fb9195471"
+  integrity sha1-BgvVEAIqAF8YQCNAMNMTL7kZVHE=
+
+"@types/prop-types@*":
+  version "15.5.8"
+  resolved "http://registry.npm.taobao.org/@types/prop-types/download/@types/prop-types-15.5.8.tgz#8ae4e0ea205fe95c3901a5a1df7f66495e3a56ce"
+  integrity sha1-iuTg6iBf6Vw5AaWh339mSV46Vs4=
+
+"@types/react@^16.7.20":
+  version "16.7.20"
+  resolved "http://registry.npm.taobao.org/@types/react/download/@types/react-16.7.20.tgz#13ae752c012710d0fa800985ca809814b51d3b58"
+  integrity sha1-E651LAEnEND6gAmFyoCYFLUdO1g=
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^2.2.0"
 
 abab@^2.0.0:
   version "2.0.0"
@@ -1691,6 +1714,11 @@ cssstyle@^1.0.0:
   integrity sha1-GLA4qcRNZfeo5CimU7n2/kL69fs=
   dependencies:
     cssom "0.3.x"
+
+csstype@^2.2.0:
+  version "2.6.0"
+  resolved "http://registry.npm.taobao.org/csstype/download/csstype-2.6.0.tgz#6cf7b2fa7fc32aab3d746802c244d4eda71371a2"
+  integrity sha1-bPey+n/DKqs9dGgCwkTU7acTcaI=
 
 dashdash@^1.12.0:
   version "1.14.1"
@@ -3906,6 +3934,11 @@ ms@^2.1.1:
   version "2.1.1"
   resolved "http://registry.npm.taobao.org/ms/download/ms-2.1.1.tgz#30a5864eb3ebb0a66f2ebe6d727af06a09d86e0a"
   integrity sha1-MKWGTrPrsKZvLr5tcnrwagnYbgo=
+
+mustache@^3.0.1:
+  version "3.0.1"
+  resolved "http://registry.npm.taobao.org/mustache/download/mustache-3.0.1.tgz#873855f23aa8a95b150fb96d9836edbc5a1d248a"
+  integrity sha1-hzhV8jqoqVsVD7ltmDbtvFodJIo=
 
 nan@^2.9.2:
   version "2.12.1"
