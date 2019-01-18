@@ -12,12 +12,11 @@ export interface Options {
 }
 
 const defaultOptions: Options = {
-  enable: false,
   global: true,
   routeOnly: false,
 };
 
-const getOptions = (api: any, newOpts: Options) => {
+const getOptions = (api: any, newOpts: Options = {}) => {
   newOpts = {
     ...defaultOptions,
     ...newOpts,

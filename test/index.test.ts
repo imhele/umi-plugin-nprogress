@@ -54,7 +54,7 @@ describe('index.test.ts', () => {
   test('API work correctly', () => {
     config.plugins = ['umi-plugin-dva'];
     expect(() => {
-      UmiPluginNprogress(UmiApi, options);
+      UmiPluginNprogress(UmiApi);
     }).not.toThrow();
     expect(contextStore).toMatchObject(defaultContext);
     options = {
@@ -82,19 +82,19 @@ describe('index.test.ts', () => {
   test('Without umi-plugin-dva', () => {
     error = [];
     config.plugins = null;
-    UmiPluginNprogress(UmiApi, options);
+    UmiPluginNprogress(UmiApi);
     expect(error.length).toBe(2);
     config.plugins = [['umi-plugin-react']];
-    UmiPluginNprogress(UmiApi, options);
+    UmiPluginNprogress(UmiApi);
     expect(error.length).toBe(4);
     config.plugins = ['umi-plugin-oss'];
-    UmiPluginNprogress(UmiApi, options);
+    UmiPluginNprogress(UmiApi);
     expect(error.length).toBe(6);
     config.plugins = [['umi-plugin-oss']];
-    UmiPluginNprogress(UmiApi, options);
+    UmiPluginNprogress(UmiApi);
     expect(error.length).toBe(8);
     config.plugins = [['umi-plugin-react', { dva: true }]];
-    UmiPluginNprogress(UmiApi, options);
+    UmiPluginNprogress(UmiApi);
     expect(error.length).toBe(8);
     UmiPluginNprogress(UmiApi, { enable: true });
     expect(error.length).toBe(8);
