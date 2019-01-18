@@ -5,6 +5,7 @@ import NProgress from 'nprogress';
 {{/enable}}
 import { PureComponent } from 'react';
 {{#routeOnly}}
+
 let oldHref = '';
 {{/routeOnly}}
 const isLoading = (props) => {

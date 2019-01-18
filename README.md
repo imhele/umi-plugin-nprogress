@@ -38,7 +38,7 @@ export default {
 ## Options
 ### Overview
 
-```tsx
+```ts
 interface Options {
   configuration?: NProgressConfigureOptions;
   effects?: string[] | RegExp;
@@ -74,6 +74,7 @@ Only the matched fields of `effects` will display the progress bar, while the ot
 export default {
   plugins: [
     ['umi-plugin-nprogress', {
+      global: false,
       effects: /^user/,
     }],
   ],
@@ -95,7 +96,7 @@ export default {
 
 
 ### global
-**default**: `true`
+**default**: `true` 
 Display the progress bar by listening to `loading.global`.
 
 ```js
@@ -116,6 +117,7 @@ Only the matched fields of `models` will display the progress bar, while the oth
 export default {
   plugins: [
     ['umi-plugin-nprogress', {
+      global: false,
       models: ['user'],
     }],
   ],
@@ -124,7 +126,7 @@ export default {
 
 
 ### routeOnly
-**default**: `false`
+**default**: `false` 
 Whether to display the progress bar only when switching routes.
 
 ```js
