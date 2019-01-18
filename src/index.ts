@@ -22,7 +22,7 @@ const getOptions = (api: any, newOpts: Options) => {
     ...defaultOptions,
     ...newOpts,
   };
-  if (newOpts.enable) {
+  if (typeof newOpts.enable === 'boolean') {
     return newOpts;
   }
   const plugins: Array<string | [string, any]> = api.config.plugins;
