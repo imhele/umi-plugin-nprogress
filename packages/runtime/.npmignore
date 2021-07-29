@@ -1,0 +1,25 @@
+# dependencies
+/node_modules
+/npm-debug.log*
+/lerna-debug.log*
+/wc-bundler.log*
+
+# source code
+/src
+
+# misc
+.DS_Store
+
+# local
+*.local.*
+
+# config
+/.editorconfig
+/.eslintrc.json
+/.gitignore
+/.npmrc
+/.prettierrc
+/lerna.json
+/pnpm-lock.yaml
+/pnpm-workspace.yaml
+/tsconfig.json

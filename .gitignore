@@ -2,17 +2,22 @@
 
 # dependencies
 /node_modules
+/packages/*/node_modules
 /npm-debug.log*
 /yarn-error.log
 /yarn.lock
 
 # production
 /dist
+/es
 /lib
 /coverage
+/packages/*/es
+/packages/*/lib
 
 # misc
 .DS_Store
 
-# editor
-/.vscode
+# tmp
+/.coveralls.yml
+/.travis.yml

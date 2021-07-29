@@ -1,0 +1,31 @@
+{
+  "name": "umi-plugin-nprogress-runtime",
+  "version": "3.0.0",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "module": "./es/index.js",
+  "types": "./es/index.d.ts",
+  "devDependencies": {
+    "@types/nprogress": "^0.0.29",
+    "typescript": "^4.3.2"
+  },
+  "dependencies": {
+    "nprogress": "0.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imhele/umi-plugin-nprogress",
+    "directory": "packages/runtime"
+  },
+  "homepage": "https://github.com/imhele/umi-plugin-nprogress",
+  "author": "何乐 <work@imhele.com> (https://github.com/imhele)",
+  "bugs": {
+    "url": "https://github.com/imhele/umi-plugin-nprogress/issues"
+  },
+  "keywords": [
+    "umi",
+    "umijs",
+    "plugin",
+    "nprogress"
+  ]
+}
