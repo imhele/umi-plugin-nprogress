@@ -2,23 +2,19 @@
 
 # dependencies
 /node_modules
-/packages/*/node_modules
-/example/node_modules
 /npm-debug.log*
 /yarn-error.log
 /yarn.lock
+/package-lock.json
 
 # production
 /dist
-/es
-/lib
-/coverage
-/packages/*/es
-/packages/*/lib
 
 # misc
 .DS_Store
 
-# tmp
-/.coveralls.yml
-/.travis.yml
+# umi
+/src/.umi
+/src/.umi-production
+/src/.umi-test
+/.env.local
