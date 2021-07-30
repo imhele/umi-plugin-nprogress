@@ -19,6 +19,7 @@
 /.gitignore
 /.npmrc
 /.prettierrc
+/.wc-bundlerrc.ts
 /lerna.json
 /pnpm-lock.yaml
 /pnpm-workspace.yaml

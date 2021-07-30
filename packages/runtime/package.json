@@ -7,11 +7,16 @@
   "types": "./es/index.d.ts",
   "devDependencies": {
     "@types/nprogress": "^0.0.29",
-    "typescript": "^4.3.2"
+    "typescript": "^4.3.2",
+    "wc-bundler": "^0.9.1"
   },
   "dependencies": {
+    "@babel/runtime": "^7.14.8",
     "nprogress": "0.2.0"
   },
+  "sideEffects": [
+    "./{es,lib,src}/setup.{ts,js}"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/imhele/umi-plugin-nprogress",

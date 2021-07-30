@@ -19,7 +19,7 @@
     "@babel/plugin-proposal-throw-expressions": "~7.12.13",
     "@babel/plugin-syntax-dynamic-import": "~7.8.3",
     "@babel/preset-env": "~7.14.8",
-    "@types/node": "^10.12.18",
+    "@types/node": "^14.17.6",
     "@types/nprogress": "^0.0.29",
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",
@@ -32,7 +32,7 @@
     "lint-staged": "^8.1.0",
     "prettier": "^2.1.0",
     "typescript": "^4.3.2",
-    "wc-bundler": "^0.8.6",
+    "wc-bundler": "^0.9.1",
     "yorkie": "^2.0.0"
   },
   "engines": {

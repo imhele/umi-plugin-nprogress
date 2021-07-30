@@ -1,5 +1,7 @@
+import { dirname } from 'path';
 import type { IApi } from 'umi';
-import { name } from '../package.json';
+
+const RuntimePkgName = 'umi-plugin-nprogress-runtime';
 
 export default function nprogress(api: IApi): void {
   api.describe({
@@ -11,8 +13,14 @@ export default function nprogress(api: IApi): void {
     return [{ source: 'nprogress/nprogress.css' }];
   });
 
+  // 优先依赖 plugin 安装的 runtime
+  api.addProjectFirstLibraries(() => {
+    const runtimePkgDir = dirname(require.resolve(`${RuntimePkgName}/packages.json`));
+    return [{ name: RuntimePkgName, path: runtimePkgDir }];
+  });
+
   // 导出运行时 api
   api.addUmiExports(() => {
-    return [{ source: name, exportAll: true }];
+    return [{ source: RuntimePkgName, exportAll: true }];
   });
 }

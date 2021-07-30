@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "alwaysStrict": true,
-    "baseUrl": ".",
     "declaration": true,
     "esModuleInterop": true,
     "experimentalDecorators": false,

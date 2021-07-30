@@ -24,8 +24,7 @@
   },
   "env": {
     "browser": true,
-    "es2021": true,
-    "node": true
+    "es2021": true
   },
   "rules": {
     "global-require": "error",
@@ -61,9 +60,11 @@
       }
     },
     {
-      "files": "scripts/**/*",
+      "files": ["scripts/**/*", "packages/**/plugin"],
+      "env": {
+        "node": true
+      },
       "rules": {
-        "global-require": "off",
         "no-console": "off",
         "import/no-dynamic-require": "off"
       }
