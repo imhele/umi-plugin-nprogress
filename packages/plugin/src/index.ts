@@ -15,7 +15,7 @@ export default function nprogress(api: IApi): void {
 
   // 优先依赖 plugin 安装的 runtime
   api.addProjectFirstLibraries(() => {
-    const runtimePkgDir = dirname(require.resolve(`${RuntimePkgName}/packages.json`));
+    const runtimePkgDir = dirname(require.resolve(`${RuntimePkgName}/package.json`));
     return [{ name: RuntimePkgName, path: runtimePkgDir }];
   });
 

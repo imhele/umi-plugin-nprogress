@@ -1,5 +1,2 @@
-import NProgress from 'nprogress';
-
-export { NProgress };
-
+export * from './n-progress';
 export * from './setup';

@@ -17,7 +17,6 @@ importers:
       '@babel/plugin-syntax-dynamic-import': ~7.8.3
       '@babel/preset-env': ~7.14.8
       '@types/node': ^14.17.6
-      '@types/nprogress': ^0.0.29
       '@typescript-eslint/eslint-plugin': ^4.19.0
       '@typescript-eslint/parser': ^4.19.0
       chalk: ^4.1.1
@@ -46,7 +45,6 @@ importers:
       '@babel/plugin-syntax-dynamic-import': 7.8.3_@babel+core@7.14.8
       '@babel/preset-env': 7.14.8_@babel+core@7.14.8
       '@types/node': 14.17.6
-      '@types/nprogress': 0.0.29
       '@typescript-eslint/eslint-plugin': 4.28.5_514553717ff968e20f6d1c6e521f8616
       '@typescript-eslint/parser': 4.28.5_eslint@7.31.0+typescript@4.3.5
       chalk: 4.1.1
@@ -66,17 +64,15 @@ importers:
     specifiers:
       '@babel/runtime': ^7.14.8
       '@types/node': ^14.17.6
-      '@types/nprogress': ^0.0.29
       typescript: ^4.3.2
       umi: ^3.5.14
-      umi-plugin-nprogress-runtime: ^2.0.0
+      umi-plugin-nprogress-runtime: ^3.0.0-alpha.0
       wc-bundler: ^0.9.1
     dependencies:
       '@babel/runtime': 7.14.8
       umi-plugin-nprogress-runtime: link:../runtime
     devDependencies:
       '@types/node': 14.17.6
-      '@types/nprogress': 0.0.29
       typescript: 4.3.5
       umi: 3.5.14
       wc-bundler: 0.9.1
@@ -84,7 +80,6 @@ importers:
   packages/runtime:
     specifiers:
       '@babel/runtime': ^7.14.8
-      '@types/nprogress': ^0.0.29
       nprogress: 0.2.0
       typescript: ^4.3.2
       wc-bundler: ^0.9.1
@@ -92,7 +87,6 @@ importers:
       '@babel/runtime': 7.14.8
       nprogress: 0.2.0
     devDependencies:
-      '@types/nprogress': 0.0.29
       typescript: 4.3.5
       wc-bundler: 0.9.1
 
@@ -2649,10 +2643,6 @@ packages:
 
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
-    dev: true
-
-  /@types/nprogress/0.0.29:
-    resolution: {integrity: sha1-BgvVEAIqAF8YQCNAMNMTL7kZVHE=}
     dev: true
 
   /@types/parse-json/4.0.0:

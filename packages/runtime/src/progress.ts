@@ -1,3 +1,4 @@
+import { NProgress } from './n-progress';
 import { PendingRequestPool } from './pool';
 
 export interface RequestHandle {
@@ -60,6 +61,8 @@ export class Progress {
     if (this.timeout > 0) {
       handle = setTimeout(ref, this.timeout);
     }
+
+    this.check();
 
     return { reject, resolve, settled };
   }
