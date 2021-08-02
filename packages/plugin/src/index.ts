@@ -6,8 +6,11 @@ import { DefaultUmiPluginNProgressConfig, UmiPluginNProgressConfig } from './int
 export { UmiPluginNProgressConfig };
 
 export default function nprogress(api: IApi): void {
-  const config: UmiPluginNProgressConfig =
-    api.config[PluginKey] || DefaultUmiPluginNProgressConfig();
+  let getConfig = (): UmiPluginNProgressConfig => {
+    const config = api.config[PluginKey] || DefaultUmiPluginNProgressConfig();
+    getConfig = () => config;
+    return config;
+  };
 
   api.describe({
     key: PluginKey,
@@ -46,8 +49,8 @@ export default function nprogress(api: IApi): void {
   }
 
   function getRuntimeAPIExportSource(): string {
-    if (!config.ie11) return RuntimeAPIPkgName;
-    if (config.ie11 === 'cjs') return `${RuntimeAPIPkgName}/ie11-lib`;
+    if (!getConfig().ie11) return RuntimeAPIPkgName;
+    if (getConfig().ie11 === 'cjs') return `${RuntimeAPIPkgName}/ie11-lib`;
     return `${RuntimeAPIPkgName}/ie11-es`;
   }
 }
