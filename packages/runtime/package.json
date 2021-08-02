@@ -14,7 +14,7 @@
     "nprogress": "0.2.0"
   },
   "sideEffects": [
-    "./{es,lib,src}/setup.{ts,js}"
+    "./{es,ie11-es,ie11-lib,lib,src}/setup.{ts,js}"
   ],
   "repository": {
     "type": "git",

@@ -13,8 +13,8 @@
 /es
 /lib
 /coverage
-/packages/*/es
-/packages/*/lib
+/packages/*/*es
+/packages/*/*lib
 
 # misc
 .DS_Store
