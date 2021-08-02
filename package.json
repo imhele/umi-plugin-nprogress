@@ -4,7 +4,7 @@
   "scripts": {
     "build": "wc-bundler",
     "lint": "eslint .",
-    "publish:all": "lerna publish",
+    "publish:all": "wc-bundler && lerna publish",
     "postinstall": "node scripts/postinstall.js"
   },
   "devDependencies": {
