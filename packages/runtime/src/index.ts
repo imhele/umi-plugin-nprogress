@@ -1,2 +1,2 @@
-export * from './n-progress';
+export * from './api';
 export * from './setup';

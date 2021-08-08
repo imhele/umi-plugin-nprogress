@@ -1,4 +1,4 @@
-import { NProgress } from './n-progress';
+import { NProgress } from '../api';
 import { PendingRequestPool } from './pool';
 
 export interface RequestHandle {

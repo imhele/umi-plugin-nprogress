@@ -5,8 +5,8 @@
 /packages/*/node_modules
 /example/node_modules
 /npm-debug.log*
+/wc-bundler.log*
 /yarn-error.log
-/yarn.lock
 
 # production
 /dist
