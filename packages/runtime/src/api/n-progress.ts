@@ -76,41 +76,57 @@ export interface NProgressStatic {
 
 export interface NProgressConfigureOptions {
   /**
+   * 使用的 CSS 动效曲线，默认为 'ease' 。
+   *
    * The CSS easing animation to use. Default is 'ease'.
    */
   readonly easing?: string;
 
   /**
+   * 进度条最小的百分比，默认为 0.08 。
+   *
    * The minimum progress percentage. Default is 0.08.
    */
   readonly minimum?: number;
 
   /**
+   * 配置进度条 DOM 容器，需要是一个 CSS 选择器，默认为 'body' 。
+   *
    * CSS selector to change the parent DOM element of the progress. Default is 'body'.
    */
   readonly parent?: string;
 
   /**
-   * Whether to show the spinner. Defaults to true. Default is true.
+   * 是否在进度条出现时展示旋转的圆圈图标，默认展示。
+   *
+   * Whether to show the spinner. Default to true.
    */
   readonly showSpinner?: boolean;
 
   /**
+   * 动画的速度（毫秒计），默认为 200 。
+   *
    * The animation speed in milliseconds. Default is 200.
    */
   readonly speed?: number;
 
   /**
+   * 进度条的 HTML 渲染模板，其中至少包含一个 HTML 属性 role 为 'bar' 的元素。
+   *
    * The HTML markup inserted for the progress indicator. To keep the progress bar working, keep an element with role='bar' in there.
    */
   readonly template?: string;
 
   /**
+   * 在展示进度条时，是否定时随机前进一点，默认启用。
+   *
    * Whether to enable trickling the progress. Default is true.
    */
   readonly trickle?: boolean;
 
   /**
+   * 进度条定时随机前进的间隔，默认为 800 。
+   *
    * How often to trickle, in milliseconds. Default is 800.
    */
   readonly trickleSpeed?: number;

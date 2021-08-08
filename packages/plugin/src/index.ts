@@ -1,7 +1,11 @@
 import { dirname } from 'path';
 import type { IApi } from 'umi';
 import { PluginKey, RuntimeAPIPkgName } from './constants';
-import { DefaultUmiPluginNProgressConfig, UmiPluginNProgressConfig } from './interfaces';
+import {
+  DefaultUmiPluginNProgressConfig,
+  UmiPluginNProgressConfig,
+  describeConfig,
+} from './interfaces';
 
 export { UmiPluginNProgressConfig };
 
@@ -14,13 +18,7 @@ export default function nprogress(api: IApi): void {
 
   api.describe({
     key: PluginKey,
-    config: {
-      default: DefaultUmiPluginNProgressConfig(),
-      schema: (joi) =>
-        joi.object({
-          ie11: joi.equal('esm', 'cjs', true, false).description('是否需要兼容到 IE 11'),
-        }),
-    },
+    config: describeConfig(),
   });
 
   // 引入 nprogress 样式

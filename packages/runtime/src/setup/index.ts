@@ -4,7 +4,7 @@ import { setupXMLHttpRequest } from './setupXMLHttpRequest';
 
 let reset: (() => void) | undefined;
 
-export interface SetupNProgressPluginRuntimeOptions {
+export interface UmiPluginNProgressRuntimeConfig {
   /**
    * 启用对 XMLHttpRequest 的监听。
    *
@@ -31,7 +31,7 @@ export interface SetupNProgressPluginRuntimeOptions {
  * @returns 返回一个函数用于撤销重写操作，也可以直接调用 `resetNProgressPluginRuntime()` ，效果是一样的。
  */
 export function setupNProgressPluginRuntime(
-  options: SetupNProgressPluginRuntimeOptions = {},
+  options: UmiPluginNProgressRuntimeConfig = {},
 ): () => void {
   // 已经 setup 过了，先重置
   if (reset) reset();
