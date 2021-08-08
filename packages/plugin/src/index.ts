@@ -1,6 +1,13 @@
 import { dirname } from 'path';
 import type { IApi } from 'umi';
-import { PluginKey, RuntimeAPIPkgName } from './constants';
+import {
+  NProgressPkgName,
+  NProgressStyleSource,
+  PluginKey,
+  RuntimeAPIIe11CjsDirectory,
+  RuntimeAPIIe11EsmDirectory,
+  RuntimeAPIPkgName,
+} from './constants';
 import {
   DefaultUmiPluginNProgressConfig,
   UmiPluginNProgressConfig,
@@ -23,12 +30,17 @@ export default function nprogress(api: IApi): void {
 
   // 引入 nprogress 样式
   api.addEntryImports(() => {
-    return [{ source: 'nprogress/nprogress.css' }];
+    return [{ source: NProgressStyleSource }];
   });
 
   // 优先依赖 plugin 安装的 runtime ，尤其是在 pnpm 下
   api.addProjectFirstLibraries(() => {
-    return [{ name: RuntimeAPIPkgName, path: getRuntimeAPIPkgPath() }];
+    const RuntimeAPIPkgPath = resolveDependency(RuntimeAPIPkgName);
+    const NProgressPkgPath = resolveDependency(NProgressPkgName, RuntimeAPIPkgPath);
+    return [
+      { name: RuntimeAPIPkgName, path: RuntimeAPIPkgPath },
+      { name: NProgressPkgName, path: NProgressPkgPath },
+    ];
   });
 
   // 导出运行时 api
@@ -36,19 +48,19 @@ export default function nprogress(api: IApi): void {
     return [{ source: getRuntimeAPIExportSource(), exportAll: true }];
   });
 
-  function getRuntimeAPIPkgPath(): string {
+  function getRuntimeAPIExportSource(): string {
+    if (!getConfig().ie11) return RuntimeAPIPkgName;
+    if (getConfig().ie11 === 'cjs') return `${RuntimeAPIPkgName}/${RuntimeAPIIe11CjsDirectory}`;
+    return `${RuntimeAPIPkgName}/${RuntimeAPIIe11EsmDirectory}`;
+  }
+
+  function resolveDependency(id: string, path: string = __dirname): string {
     try {
-      return dirname(require.resolve(`${RuntimeAPIPkgName}/package.json`));
+      return dirname(require.resolve(`${id}/package.json`, { paths: [path] }));
     } catch (error) {
       api.logger.error(error);
     }
 
-    return RuntimeAPIPkgName;
-  }
-
-  function getRuntimeAPIExportSource(): string {
-    if (!getConfig().ie11) return RuntimeAPIPkgName;
-    if (getConfig().ie11 === 'cjs') return `${RuntimeAPIPkgName}/ie11-lib`;
-    return `${RuntimeAPIPkgName}/ie11-es`;
+    return id;
   }
 }
