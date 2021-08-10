@@ -7,12 +7,14 @@ import {
   RuntimeAPIIe11CjsDirectory,
   RuntimeAPIIe11EsmDirectory,
   RuntimeAPIPkgName,
+  RuntimeInjectionFilePath,
 } from './constants';
 import {
   DefaultUmiPluginNProgressConfig,
   UmiPluginNProgressConfig,
   describeConfig,
 } from './interfaces';
+import { CreateRuntimeProgramOptions, createRuntimeProgram, printSourceFile } from './runtime';
 
 export { UmiPluginNProgressConfig };
 
@@ -28,11 +30,6 @@ export default function nprogress(api: IApi): void {
     config: describeConfig(),
   });
 
-  // 引入 nprogress 样式
-  api.addEntryImports(() => {
-    return [{ source: NProgressStyleSource }];
-  });
-
   // 优先依赖 plugin 安装的 runtime ，尤其是在 pnpm 下
   api.addProjectFirstLibraries(() => {
     const RuntimeAPIPkgPath = resolveDependency(RuntimeAPIPkgName);
@@ -43,12 +40,31 @@ export default function nprogress(api: IApi): void {
     ];
   });
 
-  // 导出运行时 api
-  api.addUmiExports(() => {
-    return [{ source: getRuntimeAPIExportSource(), exportAll: true }];
+  // 生成临时文件
+  api.onGenerateFiles(() => {
+    const createRuntimeProgramOptions: CreateRuntimeProgramOptions = {
+      ...getConfig(),
+      runtimeAPISource: getRuntimeAPISource(),
+    };
+
+    // 注入配置
+    api.writeTmpFile({
+      path: RuntimeInjectionFilePath,
+      content: printSourceFile(createRuntimeProgram(createRuntimeProgramOptions)),
+    });
   });
 
-  function getRuntimeAPIExportSource(): string {
+  // 导出运行时 api
+  api.addUmiExports(() => {
+    return [{ source: getRuntimeAPISource(), exportAll: true }];
+  });
+
+  // 引入 nprogress 样式与注入运行时的配置
+  api.addEntryImports(() => {
+    return [{ source: NProgressStyleSource }, { source: RuntimeInjectionFilePath }];
+  });
+
+  function getRuntimeAPISource(): string {
     if (!getConfig().ie11) return RuntimeAPIPkgName;
     if (getConfig().ie11 === 'cjs') return `${RuntimeAPIPkgName}/${RuntimeAPIIe11CjsDirectory}`;
     return `${RuntimeAPIPkgName}/${RuntimeAPIIe11EsmDirectory}`;

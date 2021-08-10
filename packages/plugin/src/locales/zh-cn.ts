@@ -18,6 +18,8 @@ const Translations: TranslationMap = {
   ConfigUiTemplateDescription: `进度条的 HTML 渲染模板，其中至少包含一个 HTML 属性 role 为 'bar' 的元素。`,
   ConfigUiTrickleDescription: `在展示进度条时，是否定时随机前进一点，默认启用。`,
   ConfigUiTrickleSpeedDescription: `进度条定时随机前进的间隔，默认为 800 。`,
+  CreateTSLiteralUnsupportedValueError: (type) =>
+    `创建 TypeScript Literal 时，不支持类型为 ${type} 的值。`,
 };
 
 export default Translations;

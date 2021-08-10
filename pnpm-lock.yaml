@@ -64,16 +64,16 @@ importers:
     specifiers:
       '@babel/runtime': ^7.14.8
       '@types/node': ^14.17.6
-      typescript: ^4.3.2
+      typescript: ^4.3.5
       umi: ^3.5.14
       umi-plugin-nprogress-runtime: ^3.0.0-alpha.3
       wc-bundler: ^0.9.1
     dependencies:
       '@babel/runtime': 7.14.8
+      typescript: 4.3.5
       umi-plugin-nprogress-runtime: link:../runtime
     devDependencies:
       '@types/node': 14.17.6
-      typescript: 4.3.5
       umi: 3.5.14
       wc-bundler: 0.9.1
 
@@ -11123,7 +11123,6 @@ packages:
     resolution: {integrity: sha512-DqQgihaQ9cUrskJo9kIyW/+g0Vxsk8cDtZ52a3NGh0YNTfpUSArXSohyUGnvbPazEPLu398C0UxmKSOrPumUzA==}
     engines: {node: '>=4.2.0'}
     hasBin: true
-    dev: true
 
   /uglify-js/3.14.1:
     resolution: {integrity: sha512-JhS3hmcVaXlp/xSo3PKY5R0JqKs5M3IV+exdLHW99qKvKivPO4Z8qbej6mte17SOPqAOVMjt/XGgWacnFSzM3g==}

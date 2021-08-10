@@ -56,4 +56,8 @@ export interface TranslationMap {
    * 进度条定时随机前进的间隔，默认为 800 。
    */
   readonly ConfigUiTrickleSpeedDescription: string;
+  /**
+   * 创建 TypeScript Literal 时，不支持类型为 ${type} 的值。
+   */
+  readonly CreateTSLiteralUnsupportedValueError: (type: string) => string;
 }
