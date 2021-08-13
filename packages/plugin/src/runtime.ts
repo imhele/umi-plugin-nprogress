@@ -85,7 +85,10 @@ function createElementAccessExpressions(
 function createObjectExpressionFromPlainObject(object: object): ts.ObjectLiteralExpression {
   const properties = Object.getOwnPropertyNames(object).map((name) => {
     const value = (object as Record<string, unknown>)[name];
-    return ts.factory.createPropertyAssignment(name, createLiteral(value));
+    const propertyName = /^[_$a-z][_$a-z0-9]*$/i.test(name)
+      ? name
+      : ts.factory.createComputedPropertyName(createLiteral(name));
+    return ts.factory.createPropertyAssignment(propertyName, createLiteral(value));
   });
 
   return ts.factory.createObjectLiteralExpression(properties, true);
