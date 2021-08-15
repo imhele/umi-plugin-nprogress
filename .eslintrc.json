@@ -60,7 +60,7 @@
       }
     },
     {
-      "files": ["scripts/**/*", "packages/**/plugin"],
+      "files": ["scripts/**/*", "packages/**/plugin", "./*.js"],
       "env": {
         "node": true
       },

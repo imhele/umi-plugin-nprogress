@@ -5,7 +5,8 @@
     "build": "wc-bundler",
     "lint": "eslint .",
     "publish:all": "wc-bundler && lerna publish",
-    "postinstall": "node scripts/postinstall.js"
+    "postinstall": "node scripts/postinstall.js",
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/core": "~7.14.0",
@@ -20,6 +21,8 @@
     "@babel/plugin-proposal-throw-expressions": "~7.12.13",
     "@babel/plugin-syntax-dynamic-import": "~7.8.3",
     "@babel/preset-env": "~7.14.8",
+    "@jest/types": "^27.0.6",
+    "@types/jest": "^27.0.1",
     "@types/node": "^14.17.6",
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",
@@ -29,6 +32,7 @@
     "eslint-import-resolver-node": "^0.3.4",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.3.1",
+    "jest": "^27.0.6",
     "lerna": "^4.0.0",
     "lint-staged": "^8.1.0",
     "prettier": "^2.1.0",
