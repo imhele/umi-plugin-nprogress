@@ -3,10 +3,12 @@
   "private": true,
   "scripts": {
     "build": "wc-bundler",
-    "lint": "eslint .",
+    "lint": "eslint . --ignore-path .gitignore",
+    "lint:fix": "eslint . --fix --ignore-path .gitignore",
     "publish:all": "wc-bundler && lerna publish",
     "postinstall": "node scripts/postinstall.js",
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "devDependencies": {
     "@babel/core": "~7.15.0",

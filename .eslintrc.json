@@ -33,7 +33,6 @@
     "import/no-dynamic-require": "error",
     "import/no-extraneous-dependencies": "error"
   },
-  "ignorePatterns": ["{es,lib}/**/*", "packages/*/{es,lib}/**/*"],
   "overrides": [
     {
       "files": "**/*.{ts,tsx}",
@@ -59,6 +58,7 @@
         "node": true
       },
       "rules": {
+        "global-require": "off",
         "no-console": "off",
         "import/no-dynamic-require": "off"
       }

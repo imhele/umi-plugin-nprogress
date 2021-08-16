@@ -132,4 +132,4 @@ export interface NProgressConfigureOptions {
   readonly trickleSpeed?: number;
 }
 
-export const NProgress: NProgressStatic = (NProgressAlias as unknown) as NProgressStatic;
+export const NProgress: NProgressStatic = NProgressAlias as unknown as NProgressStatic;
