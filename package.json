@@ -33,7 +33,7 @@
     "lint-staged": "^8.1.0",
     "prettier": "^2.1.0",
     "typescript": "^4.3.2",
-    "wc-bundler": "^0.10.1",
+    "wc-bundler": "^0.10.3",
     "yorkie": "^2.0.0"
   },
   "engines": {

@@ -26,7 +26,7 @@ importers:
       lint-staged: ^8.1.0
       prettier: ^2.1.0
       typescript: ^4.3.2
-      wc-bundler: ^0.10.1
+      wc-bundler: ^0.10.3
       yorkie: ^2.0.0
     devDependencies:
       '@babel/core': 7.15.0
@@ -51,7 +51,7 @@ importers:
       lint-staged: 8.2.1
       prettier: 2.3.2
       typescript: 4.3.5
-      wc-bundler: 0.10.1
+      wc-bundler: 0.10.3
       yorkie: 2.0.0
 
   packages/plugin:
@@ -14118,8 +14118,8 @@ packages:
       makeerror: 1.0.11
     dev: true
 
-  /wc-bundler/0.10.1:
-    resolution: {integrity: sha512-+KPNvcQ66Z/5DgQAzwCSz6BsA1efZb9nxtQSo6gSMp8MG6zliGpuL+Fi7R4YJT4Fu4ujpmkBM46Arn+ktVgo8A==}
+  /wc-bundler/0.10.3:
+    resolution: {integrity: sha512-f+lsLloQDhTACosdF2lUNTPpUqrL1+fhQkSFJ2QuHc5cqkUsKRS6lGiMGX+69qUIgV9z/JUo4ygfi78DCsgadw==}
     engines: {node: '>=12'}
     hasBin: true
     dependencies:
