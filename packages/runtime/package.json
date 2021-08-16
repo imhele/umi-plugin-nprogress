@@ -10,7 +10,7 @@
     "wc-bundler": "^0.9.1"
   },
   "dependencies": {
-    "@babel/runtime": "^7.14.8",
+    "@babel/runtime": "^7.15.0",
     "nprogress": "0.2.0"
   },
   "optionalDependencies": {

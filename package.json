@@ -9,18 +9,12 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@babel/core": "~7.14.0",
-    "@babel/eslint-parser": "~7.14.0",
-    "@babel/plugin-proposal-async-do-expressions": "~7.14.0",
-    "@babel/plugin-proposal-class-static-block": "~7.14.0",
-    "@babel/plugin-proposal-decorators": "~7.14.0",
-    "@babel/plugin-proposal-do-expressions": "~7.14.0",
-    "@babel/plugin-proposal-export-default-from": "~7.12.13",
-    "@babel/plugin-proposal-optional-chaining": "~7.14.0",
-    "@babel/plugin-proposal-private-property-in-object": "~7.14.0",
-    "@babel/plugin-proposal-throw-expressions": "~7.12.13",
-    "@babel/plugin-syntax-dynamic-import": "~7.8.3",
-    "@babel/preset-env": "~7.14.8",
+    "@babel/core": "~7.15.0",
+    "@babel/eslint-parser": "~7.15.0",
+    "@babel/plugin-proposal-decorators": "~7.14.5",
+    "@babel/plugin-proposal-do-expressions": "~7.14.5",
+    "@babel/plugin-proposal-optional-chaining": "~7.14.5",
+    "@babel/preset-env": "~7.15.0",
     "@jest/types": "^27.0.6",
     "@types/jest": "^27.0.1",
     "@types/node": "^14.17.6",
@@ -37,7 +31,7 @@
     "lint-staged": "^8.1.0",
     "prettier": "^2.1.0",
     "typescript": "^4.3.2",
-    "wc-bundler": "^0.9.1",
+    "wc-bundler": "^0.10.1",
     "yorkie": "^2.0.0"
   },
   "engines": {
