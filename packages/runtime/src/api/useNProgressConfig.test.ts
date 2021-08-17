@@ -22,6 +22,7 @@ describe('useNProgressConfig', () => {
 
   it(' should return config without argument', () => {
     const ret = useNProgressConfig();
+    expect(MockNProgress.configure).not.toHaveBeenCalled();
     expect(received).toBeUndefined();
     expect(ret).toBe(MockNProgress.settings);
   });
@@ -29,7 +30,9 @@ describe('useNProgressConfig', () => {
   it(' should define config while argument received', () => {
     const config = {};
     const ret = useNProgressConfig(config);
-    expect(ret).toBeUndefined();
+    expect(MockNProgress.configure).toHaveBeenCalledTimes(1);
+    expect(MockNProgress.configure).toHaveBeenCalledWith(config);
     expect(received).toBe(config);
+    expect(ret).toBeUndefined();
   });
 });

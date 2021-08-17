@@ -32,9 +32,13 @@
     "lerna": "^4.0.0",
     "lint-staged": "^8.1.0",
     "prettier": "^2.1.0",
+    "react": "^16.8.0 || ^17.0.0",
     "typescript": "^4.3.2",
     "wc-bundler": "^0.10.3",
     "yorkie": "^2.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0"
   },
   "engines": {
     "node": ">=12",
