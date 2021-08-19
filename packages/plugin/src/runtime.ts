@@ -39,11 +39,12 @@ function createImportDeclaration(
     ? ts.factory.createIdentifier(defaultSpecifier)
     : undefined;
   const importSpecifierNodes = specifiers?.map((specifier) => {
-    const [propertyName, name] = typeof specifier === 'string' ? [specifier, specifier] : specifier;
-    return ts.factory.createImportSpecifier(
-      ts.factory.createIdentifier(propertyName),
-      ts.factory.createIdentifier(name),
-    );
+    return typeof specifier === 'string'
+      ? ts.factory.createImportSpecifier(undefined, ts.factory.createIdentifier(specifier))
+      : ts.factory.createImportSpecifier(
+          ts.factory.createIdentifier(specifier[0]),
+          ts.factory.createIdentifier(specifier[1]),
+        );
   });
   const namedImportsNode =
     importSpecifierNodes && ts.factory.createNamedImports(importSpecifierNodes);
