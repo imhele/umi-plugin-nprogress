@@ -6,7 +6,8 @@
   },
   "npmClient": "npm",
   "packages": [
-    "packages/*"
+    "packages/runtime",
+    "packages/plugin"
   ],
   "version": "3.0.0-rc.0"
 }
