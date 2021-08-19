@@ -18,7 +18,3 @@
 
 # misc
 .DS_Store
-
-# tmp
-/.coveralls.yml
-/.travis.yml
