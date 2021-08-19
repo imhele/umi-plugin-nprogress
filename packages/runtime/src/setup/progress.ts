@@ -4,7 +4,7 @@ import { PendingRequestPool } from './pool';
 export interface RequestHandle {
   readonly reject: (input: unknown) => never;
   readonly resolve: <T>(input: T) => T;
-  readonly settled: () => void;
+  readonly settle: () => void;
 }
 
 /**
@@ -62,17 +62,20 @@ export class Progress {
       return input;
     };
 
-    const settled: RequestHandle['settled'] = () => {
+    const settle: RequestHandle['settle'] = () => {
       if (ref) ref();
     };
 
     if (this.timeout > 0) {
-      handle = setTimeout(ref, this.timeout);
+      handle = setTimeout(() => {
+        handle = undefined;
+        settle();
+      }, this.timeout);
     }
 
     this.check();
 
-    return { reject, resolve, settled };
+    return { reject, resolve, settle };
   }
 
   /**

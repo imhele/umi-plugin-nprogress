@@ -12,10 +12,10 @@ export function setupXMLHttpRequest(target: typeof globalThis, progress: Progres
       // send 执行时会校验 this 是否是 XMLHttpRequest 实例
       const result = getCopy().apply(this, args as never);
 
-      const { settled } = progress.allocate();
+      const { settle } = progress.allocate();
 
       const onloadend = () => {
-        settled();
+        settle();
         this.removeEventListener('loadend', onloadend);
       };
 
