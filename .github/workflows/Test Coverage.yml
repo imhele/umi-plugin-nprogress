@@ -30,7 +30,7 @@ jobs:
       - name: Build
         run: pnpm install
       - name: Test Coverage
-        run: pnpm run test:coverage:ci
+        run: pnpm run test:ci
       - name: Coveralls Parallel
         uses: coverallsapp/github-action@master
         with:

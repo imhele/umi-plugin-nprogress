@@ -8,8 +8,8 @@
     "publish:all": "wc-bundler && lerna publish",
     "postinstall": "node scripts/postinstall.js",
     "test": "jest",
-    "test:coverage": "jest --coverage",
-    "test:coverage:ci": "jest --coverage --ci --runInBand"
+    "test:ci": "jest --coverage --ci",
+    "test:coverage": "jest --coverage"
   },
   "devDependencies": {
     "@babel/core": "~7.15.0",
