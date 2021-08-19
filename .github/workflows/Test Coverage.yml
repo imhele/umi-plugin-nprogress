@@ -30,13 +30,14 @@ jobs:
       - name: Build
         run: pnpm install
       - name: Test Coverage
-        run: pnpm run test:coverage
+        run: pnpm run test:coverage:ci
       - name: Coveralls Parallel
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           flag-name: run-${{ runner.os }}-node${{ matrix.node_version }}
           parallel: true
+
   Finish:
     needs: Test
     runs-on: ubuntu-latest
