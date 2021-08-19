@@ -9,7 +9,7 @@
     "postinstall": "node scripts/postinstall.js",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "test:coverage:ci": "jest --coverage --ci --no-cache"
+    "test:coverage:ci": "jest --coverage --ci --runInBand"
   },
   "devDependencies": {
     "@babel/core": "~7.15.0",
