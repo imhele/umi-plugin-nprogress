@@ -1,4 +1,4 @@
-import MockNProgress from './__mocks__/nprogress';
+import MockNProgress from '../__mocks__/nprogress';
 import { NProgress } from './n-progress';
 
 describe('NProgress', () => {
