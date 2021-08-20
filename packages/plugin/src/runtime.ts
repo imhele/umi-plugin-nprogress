@@ -75,7 +75,7 @@ function createElementAccessExpressions(
   elements?: readonly unknown[],
 ): ts.Expression {
   const expression = typeof target === 'string' ? ts.factory.createIdentifier(target) : target;
-  if (!elements?.length) return expression;
+  if (!elements || !(elements.length > 0)) return expression;
   return createElementAccessExpressions(
     ts.factory.createElementAccessExpression(expression, createLiteral(elements[0])),
     elements.slice(1),
