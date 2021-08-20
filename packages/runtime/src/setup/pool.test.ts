@@ -1,6 +1,6 @@
 import { PendingRequestPool } from './pool';
 
-describe('PendingRequestPool', () => {
+describe('Class PendingRequestPool', () => {
   it(' should exist', () => {
     expect(PendingRequestPool).toBeDefined();
   });

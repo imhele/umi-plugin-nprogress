@@ -1,12 +1,32 @@
 import MockNProgress from '../__mocks__/nprogress';
 import { Progress } from './progress';
 
-describe('Progress', () => {
-  afterEach(() => {
-    MockNProgress.done.mockClear();
-    MockNProgress.start.mockClear();
-  });
+let setTimeoutSpy: jest.SpyInstance | undefined;
+let clearTimeoutSpy: jest.SpyInstance | undefined;
 
+beforeAll(() => {
+  jest.useFakeTimers();
+
+  setTimeoutSpy = jest.spyOn(globalThis, 'setTimeout');
+  clearTimeoutSpy = jest.spyOn(globalThis, 'clearTimeout');
+});
+
+afterEach(() => {
+  setTimeoutSpy?.mockClear();
+  clearTimeoutSpy?.mockClear();
+
+  MockNProgress.done.mockClear();
+  MockNProgress.start.mockClear();
+});
+
+afterAll(() => {
+  setTimeoutSpy?.mockRestore();
+  clearTimeoutSpy?.mockRestore();
+
+  jest.useRealTimers();
+});
+
+describe('Class Progress', () => {
   it(' should exist', () => {
     expect(Progress).toBeDefined();
   });
@@ -64,23 +84,21 @@ describe('Progress', () => {
     const handle = progress.allocate();
     expect(MockNProgress.done).toBeCalledTimes(0);
     expect(MockNProgress.start).toBeCalledTimes(1);
+    expect(setTimeout).toBeCalledTimes(1);
+    expect(setTimeout).toBeCalledWith(expect.any(Function), timeout);
 
-    setTimeout(() => {
-      expect(MockNProgress.done).toBeCalledTimes(1);
-      handle.settle();
-      expect(MockNProgress.done).toBeCalledTimes(1);
-      done();
-    }, timeout);
+    jest.runOnlyPendingTimers();
+    expect(MockNProgress.done).toBeCalledTimes(1);
+
+    handle.settle();
+    expect(MockNProgress.done).toBeCalledTimes(1);
+    done();
   });
 
   it(' should cancel the timeout callback after settled before the timeout', () => {
     const timeout = 10;
     const progress = new Progress(timeout, false);
     expect(progress.timeout).toBe(timeout);
-
-    const clearTimeout = globalThis.clearTimeout;
-    const mockClearTimeout = jest.fn().mockImplementation(clearTimeout);
-    globalThis.clearTimeout = mockClearTimeout;
 
     const handle = progress.allocate();
     expect(MockNProgress.done).toBeCalledTimes(0);
@@ -89,9 +107,7 @@ describe('Progress', () => {
     handle.settle();
     expect(MockNProgress.done).toBeCalledTimes(1);
     expect(MockNProgress.done).toBeCalledTimes(1);
-    expect(mockClearTimeout).toHaveBeenCalledTimes(1);
-
-    globalThis.clearTimeout = clearTimeout;
+    expect(clearTimeout).toBeCalledTimes(1);
   });
 
   it(' should merge duplicated update request in async mode', async () => {
