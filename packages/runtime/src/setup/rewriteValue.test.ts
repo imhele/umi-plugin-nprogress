@@ -1,6 +1,6 @@
 import { rewriteValue } from './rewriteValue';
 
-describe('Function rewriteValue()', () => {
+describe('function rewriteValue()', () => {
   it(' should exist', () => {
     expect(rewriteValue).toBeDefined();
   });

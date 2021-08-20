@@ -7,15 +7,13 @@ module.exports = function yorkie() {
   console.log('\nRegister git hooks for yorkie...');
 
   if (isCI && !process.env.HUSKY_IGNORE_CI && !process.env.YORKIE_IGNORE_CI) {
-    console.log('CI detected, skipping Git hooks installation');
-    process.exit(0);
+    return console.log('CI detected, skipping Git hooks installation');
   }
 
   if (process.env.HUSKY_SKIP_INSTALL || process.env.YORKIE_SKIP_INSTALL) {
-    console.log(
+    return console.log(
       `env variable HUSKY_SKIP_INSTALL is set to ${process.env.HUSKY_SKIP_INSTALL}, skipping Git hooks installation`,
     );
-    process.exit(0);
   }
 
   console.log('setting up Git hooks');

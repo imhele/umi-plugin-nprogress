@@ -5,7 +5,7 @@ afterEach(() => {
   MockNProgress.configure.mockClear();
 });
 
-describe('React Hook useNProgressConfig()', () => {
+describe('react hook useNProgressConfig()', () => {
   it(' should exist', () => {
     expect(useNProgressConfig).toBeDefined();
   });

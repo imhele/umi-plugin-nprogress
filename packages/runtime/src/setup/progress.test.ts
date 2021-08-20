@@ -26,7 +26,7 @@ afterAll(() => {
   jest.useRealTimers();
 });
 
-describe('Class Progress', () => {
+describe('class Progress', () => {
   it(' should exist', () => {
     expect(Progress).toBeDefined();
   });
