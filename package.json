@@ -5,7 +5,7 @@
     "build": "wc-bundler",
     "lint": "eslint . --ignore-path .gitignore",
     "lint:fix": "eslint . --fix --ignore-path .gitignore",
-    "publish:all": "wc-bundler && lerna publish",
+    "publish:all": "wc-bundler && lerna publish --no-push && pnpm i && git add . && git commit -m \"chore: update lockfile\" && git push",
     "postinstall": "node scripts/postinstall.js",
     "test": "jest",
     "test:watch": "jest --coverage --watchAll",
