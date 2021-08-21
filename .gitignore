@@ -1,20 +1,33 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/packages/*/node_modules
-/example/node_modules
+node_modules/
+
+# log
 /npm-debug.log*
 /wc-bundler.log*
-/yarn-error.log
+/yarn-error.log*
 
 # production
 /dist
 /es
 /lib
-/coverage
+/*.umd.js
+/packages/*/*dist
 /packages/*/*es
 /packages/*/*lib
+/packages/*/*.umd.js
+
+# test
+/coverage
 
 # misc
 .DS_Store
+
+# local
+*.local.*
+
+# umi
+.umi/
+.umi-production/
+.umi-test/

@@ -1,11 +1,16 @@
 # dependencies
-/node_modules
+node_modules/
+
+# log
 /npm-debug.log*
-/lerna-debug.log*
 /wc-bundler.log*
+/yarn-error.log*
 
 # source code
 /src
+
+# test
+/coverage
 
 # misc
 .DS_Store
@@ -13,14 +18,43 @@
 # local
 *.local.*
 
-# config
-/.editorconfig
-/.eslintrc.json
-/.gitignore
+# umi
+.umi/
+.umi-production/
+.umi-test/
+
+# linter config
+/.eslintignore
+/.eslintrc*
+/.prettierignore
+/.prettierrc*
+
+# bundler config
+/.babelrc*
+/.wc-bundlerrc.*
+/.umirc.*
+/babel.config.*
+/gulpfile*
+/jsconfig.json
+/tsconfig.json
+/wc-bundler.config.*
+/webpack.config.*
+
+# package manager config
+/.npmignore
 /.npmrc
-/.prettierrc
-/.wc-bundlerrc.ts
+/.pnpmfile*
+/.yarnrc
 /lerna.json
 /pnpm-lock.yaml
 /pnpm-workspace.yaml
-/tsconfig.json
+
+# test config
+/jest.config.js
+/jest.config.ts
+
+# editor config
+/.editorconfig
+/.github
+/.gitignore
+/.vscode
