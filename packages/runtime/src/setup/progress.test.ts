@@ -115,22 +115,26 @@ describe('class Progress', () => {
 
     const handle = progress.allocate();
     expect(MockNProgress.done).toBeCalledTimes(0);
+    expect(MockNProgress.start).toBeCalledTimes(0);
 
-    handle.settle();
-    progress.check();
+    expect(progress.check()).toBeInstanceOf(Promise);
     expect(MockNProgress.done).toBeCalledTimes(0);
-    await Promise.resolve();
-    expect(MockNProgress.done).toBeCalledTimes(1);
+    expect(MockNProgress.start).toBeCalledTimes(0);
+
+    await expect(progress.check()).resolves.toBe(true);
+    expect(MockNProgress.done).toBeCalledTimes(0);
+    expect(MockNProgress.start).toBeCalledTimes(1);
 
     handle.settle();
-    expect(MockNProgress.done).toBeCalledTimes(1);
-    await Promise.resolve();
-    expect(MockNProgress.done).toBeCalledTimes(1);
+    expect(MockNProgress.done).toBeCalledTimes(0);
+    expect(MockNProgress.start).toBeCalledTimes(1);
 
-    progress.check();
-    progress.check();
+    expect(progress.check()).toBeInstanceOf(Promise);
+    expect(MockNProgress.done).toBeCalledTimes(0);
+    expect(MockNProgress.start).toBeCalledTimes(1);
+
+    await expect(progress.check()).resolves.toBe(false);
     expect(MockNProgress.done).toBeCalledTimes(1);
-    await Promise.resolve();
-    expect(MockNProgress.done).toBeCalledTimes(2);
+    expect(MockNProgress.start).toBeCalledTimes(1);
   });
 });
