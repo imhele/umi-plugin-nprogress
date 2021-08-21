@@ -1,6 +1,6 @@
 {
   "name": "umi-plugin-nprogress",
-  "version": "3.0.0-rc.0",
+  "version": "3.0.0",
   "license": "MIT",
   "main": "./lib/index.js",
   "module": "./es/index.mjs",
@@ -13,7 +13,7 @@
   "dependencies": {
     "@babel/runtime": "^7.15.0",
     "typescript": "^4.3.5",
-    "umi-plugin-nprogress-runtime": "^3.0.0-alpha.5"
+    "umi-plugin-nprogress-runtime": "^3.0.0"
   },
   "peerDependencies": {
     "umi": "3.x"
