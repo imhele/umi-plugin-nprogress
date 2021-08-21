@@ -27,17 +27,15 @@ export interface UmiPluginNProgressConfig {
   ui?: NProgressConfigureOptions;
 }
 
-export function DefaultUmiPluginNProgressConfig(): UmiPluginNProgressConfig {
-  return {};
-}
-
 export function describeConfig(): IApi['describe'] extends (options: infer Options) => unknown
   ? Options extends { config?: unknown }
     ? NonNullable<Options['config']>
     : never
   : never {
+  const defaultValue: UmiPluginNProgressConfig = {};
+
   return {
-    default: DefaultUmiPluginNProgressConfig(),
+    default: defaultValue,
     schema: (joi) =>
       joi.object({
         ie11: joi.equal('esm', 'cjs', true, false).description(Translations.ConfigIe11Description),

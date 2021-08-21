@@ -9,18 +9,15 @@ import {
   RuntimeAPIPkgName,
   RuntimeInjectionFilePath,
 } from './constants';
-import {
-  DefaultUmiPluginNProgressConfig,
-  UmiPluginNProgressConfig,
-  describeConfig,
-} from './interfaces';
+import { UmiPluginNProgressConfig, describeConfig } from './interfaces';
 import { CreateRuntimeProgramOptions, createRuntimeProgram, printSourceFile } from './runtime';
 
 export { UmiPluginNProgressConfig };
 
 export default function nprogress(api: IApi): void {
   let getConfig = (): UmiPluginNProgressConfig => {
-    const config = api.config[PluginKey] || DefaultUmiPluginNProgressConfig();
+    // joi scheme 设置了默认值，按理来说这里不会为 undefined
+    const config = api.config[PluginKey];
     getConfig = () => config;
     return config;
   };
@@ -71,12 +68,6 @@ export default function nprogress(api: IApi): void {
   }
 
   function resolveDependency(id: string, path: string = __dirname): string {
-    try {
-      return dirname(require.resolve(`${id}/package.json`, { paths: [path] }));
-    } catch (error) {
-      api.logger.error(error);
-    }
-
-    return id;
+    return dirname(require.resolve(`${id}/package.json`, { paths: [path] }));
   }
 }

@@ -11,6 +11,7 @@ makeBabelPluginConfigSerializable(babel.presets);
 
 /** @type {import('@jest/types').Config.InitialOptions} */
 const config = {
+  coveragePathIgnorePatterns: [/\/node_modules\//.source, /\/\S*fixture\S*\//.source],
   transform: { [/\.[jt]sx?$/.source]: ['babel-jest', babel] },
 };
 

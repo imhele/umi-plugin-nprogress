@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`function nprogress()  with ie11 cjs  should generate runtime injection file 1`] = `
+"import { NProgress, setupNProgressPluginRuntime } from \\"umi-plugin-nprogress-runtime/ie11-lib\\";
+NProgress['configure'](undefined);
+setupNProgressPluginRuntime(undefined);
+"
+`;
+
+exports[`function nprogress()  with ie11 esm  should generate runtime injection file 1`] = `
+"import { NProgress, setupNProgressPluginRuntime } from \\"umi-plugin-nprogress-runtime/ie11-es\\";
+NProgress['configure'](undefined);
+setupNProgressPluginRuntime(undefined);
+"
+`;
+
+exports[`function nprogress()  with runtime config fetch disabled  should generate runtime injection file 1`] = `
+"import { NProgress, setupNProgressPluginRuntime } from \\"umi-plugin-nprogress-runtime\\";
+NProgress['configure'](undefined);
+setupNProgressPluginRuntime({
+    fetch: true,
+    XMLHttpRequest: false
+});
+"
+`;
+
+exports[`function nprogress()  without config  should generate runtime injection file 1`] = `
+"import { NProgress, setupNProgressPluginRuntime } from \\"umi-plugin-nprogress-runtime\\";
+NProgress['configure'](undefined);
+setupNProgressPluginRuntime(undefined);
+"
+`;
