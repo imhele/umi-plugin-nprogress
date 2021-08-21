@@ -1,11 +1,11 @@
 import { rewriteValue } from './rewriteValue';
 
 describe('function rewriteValue()', () => {
-  it(' should exist', () => {
+  it('should exist', () => {
     expect(rewriteValue).toBeDefined();
   });
 
-  it(' should correctly rewrite non-existent property', () => {
+  it('should correctly rewrite non-existent property', () => {
     const target = Object.create(null);
     const [key, objectValue, symbolValue] = ['key', {}, Symbol()];
     const createValue = jest.fn().mockReturnValue(objectValue);
@@ -27,7 +27,7 @@ describe('function rewriteValue()', () => {
     expect(createValue.mock.calls[0][0]).toThrow();
   });
 
-  it(' should correctly rewrite existent writable property', () => {
+  it('should correctly rewrite existent writable property', () => {
     const [key, objectValue, symbolValue] = ['key', {}, Symbol()];
     const createValue = jest.fn().mockReturnValue(objectValue);
     const target = Object.create(null, {
@@ -51,7 +51,7 @@ describe('function rewriteValue()', () => {
     expect(createValue.mock.calls[0][0]).toThrow();
   });
 
-  it(' should correctly rewrite existent un-writable property', () => {
+  it('should correctly rewrite existent un-writable property', () => {
     const [key, objectValue, symbolValue] = ['key', {}, Symbol()];
     const createValue = jest.fn().mockReturnValue(objectValue);
     const target = Object.create(null, { [key]: { configurable: true, value: symbolValue } });
@@ -73,7 +73,7 @@ describe('function rewriteValue()', () => {
     expect(createValue.mock.calls[0][0]).toThrow();
   });
 
-  it(' should correctly rewrite the property with only the setter', () => {
+  it('should correctly rewrite the property with only the setter', () => {
     const [key, objectValue, symbolValue] = ['key', {}, Symbol()];
     const setter = jest.fn();
     const createValue = jest.fn().mockReturnValue(objectValue);
@@ -98,7 +98,7 @@ describe('function rewriteValue()', () => {
     expect(createValue.mock.calls[0][0]).toThrow();
   });
 
-  it(' should directly rewrite the property with accessor', () => {
+  it('should directly rewrite the property with accessor', () => {
     const [key, objectValue, symbolValue] = ['key', {}, Symbol()];
     const setter = jest.fn().mockReturnValue(true);
     const createValue = jest.fn().mockReturnValue(objectValue);
@@ -125,7 +125,7 @@ describe('function rewriteValue()', () => {
     expect(createValue.mock.calls[0][0]).toThrow();
   });
 
-  it(' should directly rewrite non-configurable property', () => {
+  it('should directly rewrite non-configurable property', () => {
     const [key, objectValue, symbolValue] = ['key', {}, Symbol()];
     const createValue = jest.fn().mockReturnValue(objectValue);
     const target = Object.create(null, { [key]: { value: symbolValue, writable: true } });
@@ -143,7 +143,7 @@ describe('function rewriteValue()', () => {
     expect(createValue.mock.calls[0][0]).toThrow();
   });
 
-  it(' should ignore non-configurable un-writable property', () => {
+  it('should ignore non-configurable un-writable property', () => {
     const [key, objectValue, symbolValue] = ['key', {}, Symbol()];
     const createValue = jest.fn().mockReturnValue(objectValue);
     const target = Object.create(null, { [key]: { value: symbolValue } });
@@ -159,7 +159,7 @@ describe('function rewriteValue()', () => {
     expect(createValue.mock.calls[0][0]).toThrow();
   });
 
-  it(' should warn of undesired attribute contamination', () => {
+  it('should warn of undesired attribute contamination', () => {
     const consoleError = console.error;
     const mockConsoleError = (console.error = jest.fn());
 

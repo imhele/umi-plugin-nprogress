@@ -42,12 +42,12 @@ afterAll(() => {
 });
 
 describe('function setupNProgressPluginRuntime()', () => {
-  it(' should exist', async () => {
+  it('should exist', async () => {
     const { setupNProgressPluginRuntime } = await import('./index');
     expect(setupNProgressPluginRuntime).toBeDefined();
   });
 
-  it(' should skip setup if window does not exist', async () => {
+  it('should skip setup if window does not exist', async () => {
     const { setupNProgressPluginRuntime } = await import('./index');
 
     fakeWindowGetter.mockReturnValue(undefined);
@@ -55,7 +55,7 @@ describe('function setupNProgressPluginRuntime()', () => {
     expect(fakeWindowGetter).toBeCalledTimes(1);
   });
 
-  it(' should complete setup fetch and XMLHttpRequest by default', async () => {
+  it('should complete setup fetch and XMLHttpRequest by default', async () => {
     const [{ setupNProgressPluginRuntime }, setupFetch, setupXMLHttpRequest] = await Promise.all([
       import('./index'),
       importSetupFetch(),
@@ -74,7 +74,7 @@ describe('function setupNProgressPluginRuntime()', () => {
     expect(resetXMLHttpRequest).toBeCalledTimes(1);
   });
 
-  it(' should skip setup if disabled', async () => {
+  it('should skip setup if disabled', async () => {
     const [{ setupNProgressPluginRuntime }, setupFetch, setupXMLHttpRequest] = await Promise.all([
       import('./index'),
       importSetupFetch(),
@@ -93,7 +93,7 @@ describe('function setupNProgressPluginRuntime()', () => {
     expect(resetXMLHttpRequest).toBeCalledTimes(0);
   });
 
-  it(' should reset first if setup has been invoked', async () => {
+  it('should reset first if setup has been invoked', async () => {
     const [{ setupNProgressPluginRuntime }, setupFetch] = await Promise.all([
       import('./index'),
       importSetupFetch(),
@@ -114,17 +114,17 @@ describe('function setupNProgressPluginRuntime()', () => {
 });
 
 describe('function resetNProgressPluginRuntime()', () => {
-  it(' should exist', async () => {
+  it('should exist', async () => {
     const { resetNProgressPluginRuntime } = await import('./index');
     expect(resetNProgressPluginRuntime).toBeDefined();
   });
 
-  it(' should skip reset if setup has not been invoked', async () => {
+  it('should skip reset if setup has not been invoked', async () => {
     const { resetNProgressPluginRuntime } = await import('./index');
     expect(resetNProgressPluginRuntime()).toBe(false);
   });
 
-  it(' should reset if setup has been invoked', async () => {
+  it('should reset if setup has been invoked', async () => {
     const { resetNProgressPluginRuntime, setupNProgressPluginRuntime } = await import('./index');
     setupNProgressPluginRuntime();
     expect(resetNProgressPluginRuntime()).toBe(true);

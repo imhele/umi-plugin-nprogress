@@ -13,17 +13,17 @@ import {
 import plugin from './index';
 
 const pluginAbsPath = join(__dirname, './index');
-const fixturesAbsPath = join(__dirname, './fixtures');
+const fixturesAbsPath = join(__dirname, './__fixtures__');
 
 describe('function nprogress()', () => {
-  it(' should exist', async () => {
+  it('should exist', async () => {
     expect(plugin).toEqual(expect.any(Function));
   });
 
   for (const dirent of readdirSync(fixturesAbsPath, { withFileTypes: true })) {
     if (!dirent.isDirectory()) continue;
 
-    describe(` ${dirent.name}`, () => {
+    describe(dirent.name, () => {
       const writeTmpFile = jest.fn();
       const cwd = join(fixturesAbsPath, dirent.name);
       const service = new Service({ cwd });
@@ -52,12 +52,12 @@ describe('function nprogress()', () => {
         writeTmpFile.mockClear();
       });
 
-      it(' should be registered after initialization', () => {
+      it('should be registered after initialization', () => {
         expect(service.hasPlugins([PluginKey])).toBe(true);
         expect(service.hooksByPluginId[PluginKey]).toBeDefined();
       });
 
-      it(' should add runtime deps resolutions', async () => {
+      it('should add runtime deps resolutions', async () => {
         const deps: Record<PropertyKey, unknown>[] = await service.applyPlugins({
           key: 'addProjectFirstLibraries',
           type: service.ApplyPluginsType.add,
@@ -68,7 +68,7 @@ describe('function nprogress()', () => {
         expect(depNames).toContain(RuntimeAPIPkgName);
       });
 
-      it(' should generate runtime injection file', async () => {
+      it('should generate runtime injection file', async () => {
         await service.applyPlugins({
           key: 'onGenerateFiles',
           type: service.ApplyPluginsType.add,
@@ -80,7 +80,7 @@ describe('function nprogress()', () => {
         expect(writeTmpFile.mock.calls[0][0].content).toMatchSnapshot();
       });
 
-      it(' should export runtime api', async () => {
+      it('should export runtime api', async () => {
         const deps: Record<PropertyKey, unknown>[] = await service.applyPlugins({
           key: 'addUmiExports',
           type: service.ApplyPluginsType.add,
@@ -90,7 +90,7 @@ describe('function nprogress()', () => {
         expect(depNames).toContain(getRuntimeAPISource());
       });
 
-      it(' should add entry import statements', async () => {
+      it('should add entry import statements', async () => {
         const deps: Record<PropertyKey, unknown>[] = await service.applyPlugins({
           key: 'addEntryImports',
           type: service.ApplyPluginsType.add,

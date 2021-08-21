@@ -8,11 +8,11 @@ afterEach(() => {
 });
 
 describe('function setupFetch()', () => {
-  it(' should exist', () => {
+  it('should exist', () => {
     expect(setupFetch).toBeDefined();
   });
 
-  it(' should skip setup if fetch does not exist', () => {
+  it('should skip setup if fetch does not exist', () => {
     const target = Object.create(null);
     const reset = setupFetch(target, new Progress());
     expect(target).not.toHaveProperty('fetch');
@@ -20,7 +20,7 @@ describe('function setupFetch()', () => {
     expect(target).not.toHaveProperty('fetch');
   });
 
-  it(' should rewrite fetch', async () => {
+  it('should rewrite fetch', async () => {
     const fetch = jest.fn();
     const [resolvedValue, rejectedValue] = [Symbol(), Symbol()];
     const target = Object.assign(Object.create(null), { fetch });

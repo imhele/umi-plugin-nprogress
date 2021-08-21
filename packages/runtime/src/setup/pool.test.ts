@@ -1,11 +1,11 @@
 import { PendingRequestPool } from './pool';
 
 describe('class PendingRequestPool', () => {
-  it(' should exist', () => {
+  it('should exist', () => {
     expect(PendingRequestPool).toBeDefined();
   });
 
-  it(' should count allocations', () => {
+  it('should count allocations', () => {
     const pool = new PendingRequestPool();
     expect(pool.size).toBe(0);
 

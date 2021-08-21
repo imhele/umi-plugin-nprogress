@@ -9,11 +9,11 @@ afterEach(() => {
 });
 
 describe('function setupXMLHttpRequest()', () => {
-  it(' should exist', () => {
+  it('should exist', () => {
     expect(setupXMLHttpRequest).toBeDefined();
   });
 
-  it(' should skip setup if XMLHttpRequest does not exist', () => {
+  it('should skip setup if XMLHttpRequest does not exist', () => {
     const target = Object.create(null);
     const reset = setupXMLHttpRequest(target, new Progress());
     expect(target).not.toHaveProperty('XMLHttpRequest');
@@ -21,7 +21,7 @@ describe('function setupXMLHttpRequest()', () => {
     expect(target).not.toHaveProperty('XMLHttpRequest');
   });
 
-  it(' should rewrite XMLHttpRequest', () => {
+  it('should rewrite XMLHttpRequest', () => {
     const [argument, returnValue] = [Symbol(), Symbol()];
     const [emitter, fakeEventTarget] = createFakeEventTarget();
 

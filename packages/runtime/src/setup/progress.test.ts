@@ -27,11 +27,11 @@ afterAll(() => {
 });
 
 describe('class Progress', () => {
-  it(' should exist', () => {
+  it('should exist', () => {
     expect(Progress).toBeDefined();
   });
 
-  it(' should update n-progress status after resolved / rejected / settled', () => {
+  it('should update n-progress status after resolved / rejected / settled', () => {
     const progress = new Progress(0, false);
 
     let handle = progress.allocate();
@@ -71,12 +71,12 @@ describe('class Progress', () => {
     expect(MockNProgress.start).toBeCalledTimes(3);
   });
 
-  it(' should enable timeout by default', () => {
+  it('should enable timeout by default', () => {
     const progress = new Progress();
     expect(progress.timeout).toBeGreaterThan(0);
   });
 
-  it(' should clear handle after timeout', (done) => {
+  it('should clear handle after timeout', (done) => {
     const timeout = 10;
     const progress = new Progress(timeout, false);
     expect(progress.timeout).toBe(timeout);
@@ -95,7 +95,7 @@ describe('class Progress', () => {
     done();
   });
 
-  it(' should cancel the timeout callback after settled before the timeout', () => {
+  it('should cancel the timeout callback after settled before the timeout', () => {
     const timeout = 10;
     const progress = new Progress(timeout, false);
     expect(progress.timeout).toBe(timeout);
@@ -110,7 +110,7 @@ describe('class Progress', () => {
     expect(clearTimeout).toBeCalledTimes(1);
   });
 
-  it(' should merge duplicated update request in async mode', async () => {
+  it('should merge duplicated update request in async mode', async () => {
     const progress = new Progress();
 
     const handle = progress.allocate();

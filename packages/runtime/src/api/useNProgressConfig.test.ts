@@ -6,17 +6,17 @@ afterEach(() => {
 });
 
 describe('react hook useNProgressConfig()', () => {
-  it(' should exist', () => {
+  it('should exist', () => {
     expect(useNProgressConfig).toBeDefined();
   });
 
-  it(' should return config without argument', () => {
+  it('should return config without argument', () => {
     const ret = useNProgressConfig();
     expect(MockNProgress.configure).not.toBeCalled();
     expect(ret).toBe(MockNProgress.settings);
   });
 
-  it(' should define config while argument received', () => {
+  it('should define config while argument received', () => {
     const config = {};
     const ret = useNProgressConfig(config);
     expect(MockNProgress.configure).toBeCalledTimes(1);
