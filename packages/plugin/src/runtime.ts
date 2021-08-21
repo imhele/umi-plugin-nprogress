@@ -28,7 +28,7 @@ export function printSourceFile(sourceFile: ts.SourceFile): string {
   return ts.createPrinter().printFile(sourceFile);
 }
 
-function createImportDeclaration(
+export function createImportDeclaration(
   moduleName: string,
   specifiers?: readonly (string | readonly [string, string])[],
   defaultSpecifier?: string,
@@ -61,7 +61,7 @@ function createImportDeclaration(
   );
 }
 
-function createPlainCallExpression(
+export function createPlainCallExpression(
   callee: ts.Expression,
   argumentsArray?: readonly ts.Expression[],
   typeArguments?: readonly ts.TypeNode[],
@@ -70,7 +70,7 @@ function createPlainCallExpression(
   return ts.factory.createExpressionStatement(expression);
 }
 
-function createElementAccessExpressions(
+export function createElementAccessExpressions(
   target: string | ts.Expression,
   elements?: readonly unknown[],
 ): ts.Expression {
@@ -83,7 +83,7 @@ function createElementAccessExpressions(
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-function createObjectExpressionFromPlainObject(object: object): ts.ObjectLiteralExpression {
+export function createObjectExpressionFromPlainObject(object: object): ts.ObjectLiteralExpression {
   const properties = Object.getOwnPropertyNames(object).map((name) => {
     const value = (object as Record<string, unknown>)[name];
     const propertyName = /^[_$a-z][_$a-z0-9]*$/i.test(name)
@@ -95,7 +95,7 @@ function createObjectExpressionFromPlainObject(object: object): ts.ObjectLiteral
   return ts.factory.createObjectLiteralExpression(properties, true);
 }
 
-function createLiteral(
+export function createLiteral(
   value: unknown,
 ):
   | ts.BigIntLiteral
