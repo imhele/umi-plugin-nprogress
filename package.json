@@ -7,7 +7,7 @@
     "lint:fix": "eslint . --fix --ignore-path .gitignore",
     "postinstall": "node npm-lifecycle/postinstall.js",
     "prepublishOnly": "npm run update:lockfile && npm run build && npm run test",
-    "publish:all": "lerna publish",
+    "publish:all": "lerna publish --no-push && git push origin master",
     "test": "jest",
     "test:watch": "jest --coverage --watchAll",
     "test:ci": "jest --coverage --ci",
