@@ -4,6 +4,102 @@
 
 安装此插件，自动监听浏览器请求执行情况，以展示 NProgress 进度条。
 
+## 用法
+
+### 在 UmiJS 项目中使用
+
+直接安装 `umi-plugin-nprogress` 到你的 UmiJS 项目即可，默认开启：
+
+```shell
+yarn add umi-plugin-nprogress --dev
+# 或者
+npm add umi-plugin-nprogress --save-dev
+# 或者
+pnpm add umi-plugin-nprogress --save-dev
+```
+
+### 动态配置或是获取 NProgress 配置
+
+通常情况下，你可以直接[在插件中提供 NProgress 的配置](#ui)，如果你需要在运行时修改或者获取 NProgress 配置，可以从 `'umi'` 中导入 NProgress ：
+
+```ts
+import { NProgress } from 'umi';
+
+NProgress.config({
+  // 你想要修改的配置
+});
+
+// NProgress 当前的配置
+console.log(NProgress.settings);
+```
+
+如果你的项目使用了 React ，还可以通过 React Hook 来修改或是获取 NProgress 配置：
+
+```ts
+import { useNProgressConfig } from 'umi';
+
+export function MyComponent() {
+  // NProgress 当前的配置
+  const config = useNProgressConfig();
+
+  useNProgressConfig({
+    // 你想要修改的配置
+  });
+
+  return null;
+}
+```
+
+### 获取 NProgress 实例
+
+如果需要手动控制 NProgress ，可以从 `'umi'` 中导入 NProgress ：
+
+```ts
+import { NProgress } from 'umi';
+
+NProgress.start();
+NProgress.done();
+```
+
+### 在其他项目中使用
+
+`umi-plugin-nprogress` 的核心运行时能力由 `umi-plugin-nprogress-runtime` 提供，而 `umi-plugin-nprogress-runtime` 无需依赖 UmiJS 即可运行，所以可以在非 UmiJS 项目中使用。
+
+首先安装 `umi-plugin-nprogress-runtime` 到你的项目：
+
+```shell
+yarn add umi-plugin-nprogress-runtime
+# 或者
+npm add umi-plugin-nprogress-runtime
+# 或者
+pnpm add umi-plugin-nprogress-runtime
+```
+
+然后在项目的入口文件添加如下代码：
+
+```ts
+import { NProgress, setupNProgressPluginRuntime } from 'umi-plugin-nprogress-runtime';
+// 引入 NProgress 样式，如果你确定不需要（例如自己定义了 NProgress 的渲染模板），则可以删除此行
+import 'nprogress/nprogress.css';
+
+// 如果默认配置即可满足需求，则无需调用此函数
+NProgress.configure({
+  // 添加你的 NProgress 配置
+});
+
+// 如果默认配置即可满足需求，直接 setupNProgressPluginRuntime() 即可
+setupNProgressPluginRuntime({
+  // 添加你的 runtime 配置
+});
+```
+
+前面示例中，从 `'umi'` 导出的 `NProgress` 、 `useNProgressConfig` 等 API ，可以直接从 `'umi-plugin-nprogress-runtime'` 获取：
+
+```diff
+- import { NProgress, useNProgressConfig } from 'umi';
++ import { NProgress, useNProgressConfig } from 'umi-plugin-nprogress-runtime';
+```
+
 ## 配置
 
 ### `ie11`
