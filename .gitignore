@@ -31,3 +31,8 @@ node_modules/
 .umi/
 .umi-production/
 .umi-test/
+
+# lock file
+/pnpm-lock.*
+/package-lock.json
+/yark.lock
