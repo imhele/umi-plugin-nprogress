@@ -61,7 +61,7 @@ importers:
       '@types/node': ^14.17.6
       typescript: ^4.3.5
       umi: ^3.5.14
-      umi-plugin-nprogress-runtime: ^3.3.0
+      umi-plugin-nprogress-runtime: ^3.4.0
       wc-bundler: ^0.10.4
     dependencies:
       '@babel/runtime': 7.15.3
