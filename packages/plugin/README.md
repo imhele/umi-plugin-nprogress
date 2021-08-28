@@ -18,6 +18,8 @@ npm add umi-plugin-nprogress --save-dev
 pnpm add umi-plugin-nprogress --save-dev
 ```
 
+> UmiJS v2 请使用 [v1.1.4](https://github.com/imhele/umi-plugin-nprogress/tree/be2ab6c2de482fc5420af071e93f0b4d8d6f5ca5) 及以下版本
+
 ### 动态配置或是获取 NProgress 配置
 
 通常情况下，你可以直接[在插件中提供 NProgress 的配置](#ui)，如果你需要在运行时修改或者获取 NProgress 配置，可以从 `'umi'` 中导入 NProgress ：

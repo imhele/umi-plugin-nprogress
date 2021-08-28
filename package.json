@@ -6,12 +6,13 @@
     "lint": "eslint . --ignore-path .gitignore",
     "lint:fix": "eslint . --fix --ignore-path .gitignore",
     "postinstall": "node npm-lifecycle/postinstall.js",
-    "prepublishOnly": "pnpm i && git add pnpm-lock.yaml && npm run build && npm run test",
+    "prepublishOnly": "npm run update:lockfile && npm run build && npm run test",
     "publish:all": "lerna publish",
     "test": "jest",
     "test:watch": "jest --coverage --watchAll",
     "test:ci": "jest --coverage --ci",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "update:lockfile": "pnpm i && git add pnpm-lock.yaml && git commit -m \"chore: update lockfile\""
   },
   "devDependencies": {
     "@babel/core": "~7.15.0",
