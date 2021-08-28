@@ -8,6 +8,7 @@ node_modules/
 
 # source code
 /src
+/scripts
 
 # test
 /coverage
@@ -24,10 +25,10 @@ node_modules/
 .umi-test/
 
 # linter config
-/.eslintignore
-/.eslintrc*
-/.prettierignore
-/.prettierrc*
+.eslintignore
+.eslintrc*
+.prettierignore
+.prettierrc*
 
 # bundler config
 /.babelrc*
@@ -43,18 +44,18 @@ node_modules/
 # package manager config
 /.npmignore
 /.npmrc
+/.nvmrc
 /.pnpmfile*
 /.yarnrc
 /lerna.json
-/pnpm-lock.yaml
-/pnpm-workspace.yaml
+/pnpm-lock.*
+/pnpm-workspace.*
 
 # test config
-/jest.config.js
-/jest.config.ts
+/jest.config.*
 
 # editor config
-/.editorconfig
+.editorconfig
+.gitignore
 /.github
-/.gitignore
 /.vscode

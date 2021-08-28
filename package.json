@@ -5,8 +5,10 @@
     "build": "wc-bundler",
     "lint": "eslint . --ignore-path .gitignore",
     "lint:fix": "eslint . --fix --ignore-path .gitignore",
-    "publish:all": "wc-bundler && lerna publish --no-push --no-git-tag-version && pnpm i && git add . && git commit -m \"chore: update lockfile\" && git push",
-    "postinstall": "node scripts/postinstall.js",
+    "postinstall": "node npm-lifecycle/postinstall.js",
+    "postpublish": "pnpm i",
+    "prepublishOnly": "npm run build && npm run test",
+    "publish:all": "lerna publish",
     "test": "jest",
     "test:watch": "jest --coverage --watchAll",
     "test:ci": "jest --coverage --ci",
@@ -48,7 +50,7 @@
   },
   "gitHooks": {
     "pre-commit": "lint-staged",
-    "commit-msg": "node scripts/internal/verifyCommit.js"
+    "commit-msg": "node scripts/verifyCommit.js"
   },
   "lint-staged": {
     "*.{md,json,yaml,yml}": [

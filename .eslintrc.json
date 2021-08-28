@@ -53,7 +53,7 @@
       }
     },
     {
-      "files": ["scripts/**/*", "packages/**/plugin", "./*.js", "**/*.test.{ts,tsx}"],
+      "files": ["packages/**/plugin", "**/*.js", "**/*.test.{ts,tsx}"],
       "env": {
         "node": true
       },
