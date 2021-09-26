@@ -1,3 +1,3 @@
-if (require('fs').existsSync('../scripts')) {
+if (require('fs').existsSync(require('path').join(__dirname, '../scripts'))) {
   require('../scripts/yorkie');
 }

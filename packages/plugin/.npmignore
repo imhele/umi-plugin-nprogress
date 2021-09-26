@@ -2,13 +2,15 @@
 node_modules/
 
 # log
+/lerna-debug.log*
 /npm-debug.log*
 /wc-bundler.log*
 /yarn-error.log*
 
 # source code
-/src
+/packages
 /scripts
+/src
 
 # test
 /coverage
@@ -58,4 +60,5 @@ node_modules/
 .editorconfig
 .gitignore
 /.github
+/.gitlab
 /.vscode
